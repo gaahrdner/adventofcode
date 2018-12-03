@@ -51,7 +51,6 @@ func main() {
 
 	fabric := [1000][1000]int{}
 	squareInchesWithinTwoOrMoreClaims := 0
-	// noOverlap := 0
 
 	// Part 1
 	for _, claim := range claims {
@@ -77,7 +76,7 @@ func main() {
 		}
 
 		if !isOverlap {
-			fmt.Println(claim.ID)
+			fmt.Println("Non-overlapping claim ID:", claim.ID)
 		}
 	}
 
