@@ -51,6 +51,7 @@ func main() {
 
 	fabric := [1000][1000]int{}
 	squareInchesWithinTwoOrMoreClaims := 0
+	// noOverlap := 0
 
 	// Part 1
 	for _, claim := range claims {
@@ -64,6 +65,22 @@ func main() {
 		}
 	}
 
-	fmt.Println(squareInchesWithinTwoOrMoreClaims)
+	// Part 2
+	for _, claim := range claims {
+		isOverlap := false
+		for y := claim.Left; y < claim.Left+claim.Width; y++ {
+			for x := claim.Top; x < claim.Top+claim.Height; x++ {
+				if fabric[y][x] > 1 {
+					isOverlap = true
+				}
+			}
+		}
+
+		if !isOverlap {
+			fmt.Println(claim.ID)
+		}
+	}
+
+	fmt.Println("Square inches with two or more claims:", squareInchesWithinTwoOrMoreClaims)
 
 }
